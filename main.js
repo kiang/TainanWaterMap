@@ -47,7 +47,6 @@ function initialize() {
 
                     marker.data = points[key];
                     marker.addListener('click', function () {
-                        console.log(this.data);
                         var infoText = '<strong>' + this.data.name + '</strong>';
                         infoText += '<br />站碼: ' + this.data.code;
                         infoText += '<br />河川分區: ' + this.data.type;
