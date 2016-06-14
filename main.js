@@ -17,6 +17,10 @@ function initialize() {
             $.getJSON('http://i.tainan.gov.tw/TainanLocalWst.php?basin=' + rivers[k], {}, function (i) {
                 for (g in i.local_wst_warn_info) {
                     var key = i.local_wst_warn_info[g].st_no;
+                    if(!points[key]) {
+                        console.log(key);
+                        continue;
+                    }
                     points[key].alert_level = i.local_wst_warn_info[g].alert_level;
                     points[key].change = i.local_wst_warn_info[g].change;
                     points[key].date = i.local_wst_warn_info[g].date;
@@ -43,16 +47,23 @@ function initialize() {
 
                     marker.data = points[key];
                     marker.addListener('click', function () {
+                        console.log(this.data);
                         var infoText = '<strong>' + this.data.name + '</strong>';
                         infoText += '<br />站碼: ' + this.data.code;
                         infoText += '<br />河川分區: ' + this.data.type;
+                        info.setContent(infoText);
+                        info.open(map, this);
+                        
                         infoText += '<br />行政區: ' + this.data.area;
                         infoText += '<br />轄管單位: ' + this.data.admin;
                         infoText += '<br />河川排水: ' + this.data.river;
                         infoText += '<br />警戒狀態: ' + this.data.alert_level;
                         infoText += '<br />說明: ' + this.data.warn_info;
-                        info.setContent(infoText);
-                        info.open(map, this);
+                        infoText += '<br />時間: ' + this.data.date;
+                        if(this.data.image !== '') {
+                            infoText += '<br /><img src="' + this.data.image + '" />';
+                        }
+                        
                         map.setZoom(15);
                         map.setCenter(this.getPosition());
                         $('#pointContent').html(infoText);
