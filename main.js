@@ -1,7 +1,7 @@
 /*
  * 流域編號=1580(八掌溪流域)、1590(急水溪流域)、1600(將軍溪流域)、1630(曾文溪流域)、1650(鹽水溪流域)、1660(二仁溪流域)
  */
-var map, info, bounds, points;
+var map, info, bounds, points, markers = [], markersBase = [];
 var rivers = ['1580', '1590', '1600', '1630', '1650', '1660'];
 function initialize() {
     map = new google.maps.Map(document.getElementById('map-canvas'), {
@@ -17,7 +17,7 @@ function initialize() {
             $.getJSON('http://i.tainan.gov.tw/TainanLocalWst.php?basin=' + rivers[k], {}, function (i) {
                 for (g in i.local_wst_warn_info) {
                     var key = i.local_wst_warn_info[g].st_no;
-                    if(!points[key]) {
+                    if (!points[key]) {
                         console.log(key);
                         continue;
                     }
@@ -53,21 +53,23 @@ function initialize() {
                         infoText += '<br />河川分區: ' + this.data.type;
                         info.setContent(infoText);
                         info.open(map, this);
-                        
+
                         infoText += '<br />行政區: ' + this.data.area;
                         infoText += '<br />轄管單位: ' + this.data.admin;
                         infoText += '<br />河川排水: ' + this.data.river;
                         infoText += '<br />警戒狀態: ' + this.data.alert_level;
                         infoText += '<br />說明: ' + this.data.warn_info;
                         infoText += '<br />時間: ' + this.data.date;
-                        if(this.data.image !== '') {
+                        if (this.data.image !== '') {
                             infoText += '<br /><img src="' + this.data.image + '" />';
                         }
-                        
+
                         map.setZoom(15);
                         map.setCenter(this.getPosition());
                         $('#pointContent').html(infoText);
                     });
+                    markers.push(marker);
+                    markersBase.push(marker);
                     bounds.extend(geoPoint);
                 }
             });
@@ -79,9 +81,40 @@ function initialize() {
 
     $('a.bounds-reset').click(function () {
         map.fitBounds(bounds);
+        showPoints();
         return false;
     });
 
+    $('a.bounds-image').click(function () {
+        map.fitBounds(bounds);
+        showImagePoints();
+        return false;
+    });
+
+}
+
+function showPoints() {
+    for (k in markers) {
+        markers[k].setMap(null);
+    }
+    markers = [];
+    for (k in markersBase) {
+        markersBase[k].setMap(map);
+        markers.push(markersBase[k]);
+    }
+}
+
+function showImagePoints() {
+    for (k in markers) {
+        markers[k].setMap(null);
+    }
+    markers = [];
+    for (k in markersBase) {
+        if (markersBase[k].data.image != '') {
+            markersBase[k].setMap(map);
+            markers.push(markersBase[k]);
+        }
+    }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
