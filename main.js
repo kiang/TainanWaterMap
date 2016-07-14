@@ -20,7 +20,7 @@ function initialize() {
                 var marker = new google.maps.Marker({
                     position: geoPoint,
                     map: map,
-                    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                    icon: 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png',
                     title: points[k].name
                 });
                 
