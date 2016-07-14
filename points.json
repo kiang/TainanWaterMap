@@ -162,7 +162,7 @@
         "river": "永康排水",
         "latitude": 23.050094444444,
         "longitude": 120.25321666667,
-        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV03\/TOP10\/V1700003_10.jpg"
+        "image": ""
     },
     "W1771002": {
         "code": "W1771002",
@@ -272,7 +272,7 @@
         "river": "三爺溪排水",
         "latitude": 22.927333333333,
         "longitude": 120.22147222222,
-        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV04\/TOP10\/V1700004_10.jpg"
+        "image": ""
     },
     "W1771702": {
         "code": "W1771702",
@@ -283,7 +283,7 @@
         "river": "三爺溪排水",
         "latitude": 22.956166666667,
         "longitude": 120.24291111111,
-        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV69\/TOP10\/V1770008_10.jpg"
+        "image": ""
     },
     "W1771703": {
         "code": "W1771703",
@@ -294,7 +294,7 @@
         "river": "三爺溪排水",
         "latitude": 22.991083333333,
         "longitude": 120.25044444444,
-        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV06\/TOP10\/V1700006_10.jpg"
+        "image": ""
     },
     "W1771704": {
         "code": "W1771704",
@@ -316,7 +316,7 @@
         "river": "港尾溝排水",
         "latitude": 22.919305555556,
         "longitude": 120.23194444444,
-        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV65\/TOP10\/V1770004_10.jpg"
+        "image": ""
     },
     "W1771706": {
         "code": "W1771706",
@@ -327,7 +327,7 @@
         "river": "港尾溝排水",
         "latitude": 22.919222222222,
         "longitude": 120.23175,
-        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV66\/TOP10\/V1770005_10.jpg"
+        "image": ""
     },
     "W1771707": {
         "code": "W1771707",
@@ -360,7 +360,7 @@
         "river": "麻豆排水",
         "latitude": 23.210591666667,
         "longitude": 120.22094444444,
-        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV07\/TOP10\/V1700007_10.jpg"
+        "image": ""
     },
     "W1772102": {
         "code": "W1772102",
@@ -371,7 +371,7 @@
         "river": "埤頭排水",
         "latitude": 23.191055555556,
         "longitude": 120.22869444444,
-        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV08\/TOP10\/V1700008_10.jpg"
+        "image": ""
     },
     "W1772201": {
         "code": "W1772201",
@@ -845,5 +845,126 @@
         "latitude": 23.225197222222,
         "longitude": 120.17319166667,
         "image": ""
+    },
+    "V1771001": {
+        "code": "V1771001",
+        "name": "永康排水分洪口",
+        "type": "區域排水",
+        "area": "永康區",
+        "admin": "台南市政府",
+        "river": "永康排水",
+        "latitude": 23.05,
+        "longitude": 120.25436111111,
+        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV03\/TOP10\/V1700003_10.jpg"
+    },
+    "V1771701": {
+        "code": "V1771701",
+        "name": "五空橋",
+        "type": "區域排水",
+        "area": "仁德區",
+        "admin": "台南市政府",
+        "river": "三爺溪排水",
+        "latitude": 22.927333333333,
+        "longitude": 120.22147222222,
+        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV04\/TOP10\/V1700004_10.jpg"
+    },
+    "V1771702": {
+        "code": "V1771702",
+        "name": "洋子下橋",
+        "type": "區域排水",
+        "area": "仁德區",
+        "admin": "台南市政府",
+        "river": "三爺溪排水",
+        "latitude": 22.956166666667,
+        "longitude": 120.24291111111,
+        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV05\/TOP10\/V1700005_10.jpg"
+    },
+    "V1771703": {
+        "code": "V1771703",
+        "name": "鯽潭橋",
+        "type": "區域排水",
+        "area": "仁德區",
+        "admin": "台南市政府",
+        "river": "三爺溪排水",
+        "latitude": 22.991083333333,
+        "longitude": 120.25044444444,
+        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV06\/TOP10\/V1700006_10.jpg"
+    },
+    "V1772101": {
+        "code": "V1772101",
+        "name": "真理橋",
+        "type": "區域排水",
+        "area": "麻豆區",
+        "admin": "台南市政府",
+        "river": "麻豆排水",
+        "latitude": 23.210591666667,
+        "longitude": 120.22094444444,
+        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV07\/TOP10\/V1700007_10.jpg"
+    },
+    "V1772102": {
+        "code": "V1772102",
+        "name": "埤頭橋",
+        "type": "區域排水",
+        "area": "麻豆區",
+        "admin": "台南市政府",
+        "river": "埤頭排水",
+        "latitude": 23.191055555556,
+        "longitude": 120.22869444444,
+        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV08\/TOP10\/V1700008_10.jpg"
+    },
+    "V1770002": {
+        "code": "V1770002",
+        "name": "新和庄街道",
+        "type": "區域排水",
+        "area": "新化區",
+        "admin": "台南市政府",
+        "river": "虎頭溪排水",
+        "latitude": 23.023063888889,
+        "longitude": 120.32941666667,
+        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV62\/TOP10\/V1770002_10.jpg"
+    },
+    "V1770003": {
+        "code": "V1770003",
+        "name": "新和庄河道",
+        "type": "區域排水",
+        "area": "新化區",
+        "admin": "台南市政府",
+        "river": "虎頭溪排水",
+        "latitude": 23.023063888889,
+        "longitude": 120.32941666667,
+        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV63\/TOP10\/V1770003_10.jpg"
+    },
+    "V1770004": {
+        "code": "V1770004",
+        "name": "港尾溝溪分洪口",
+        "type": "區域排水",
+        "area": "歸仁區",
+        "admin": "台南市政府",
+        "river": "港尾溝排水",
+        "latitude": 22.927341666667,
+        "longitude": 120.257125,
+        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV65\/TOP10\/V1770004_10.jpg"
+    },
+    "V1770005": {
+        "code": "V1770005",
+        "name": "港尾溝溪分洪道",
+        "type": "區域排水",
+        "area": "歸仁區",
+        "admin": "台南市政府",
+        "river": "港尾溝排水",
+        "latitude": 22.903144444444,
+        "longitude": 120.26767777778,
+        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV66\/TOP10\/V1770005_10.jpg"
+    },
+    "V1770008": {
+        "code": "V1770008",
+        "name": "萬代橋",
+        "type": "區域排水",
+        "area": "仁德區",
+        "admin": "台南市政府",
+        "river": "三爺溪排水",
+        "latitude": 22.972069444444,
+        "longitude": 120.24908055556,
+        "image": "http:\/\/210.61.23.112\/CameraImages\/CCTV69\/TOP10\/V1770008_10.jpg"
     }
 }

@@ -13,6 +13,38 @@ function initialize() {
 
     $.getJSON('points.json', {}, function (r) {
         points = r;
+        for (k in points) {
+            if (k.substr(0, 1) === 'V') {
+                var geoPoint = (new google.maps.LatLng(points[k].latitude, points[k].longitude));
+
+                var marker = new google.maps.Marker({
+                    position: geoPoint,
+                    map: map,
+                    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                    title: points[k].name
+                });
+                
+                marker.data = points[k];
+                marker.addListener('click', function () {
+                    var infoText = '<strong>' + this.data.name + '</strong>';
+                    infoText += '<br />站碼: ' + this.data.code;
+                    infoText += '<br />河川分區: ' + this.data.type;
+                    info.setContent(infoText);
+                    info.open(map, this);
+                    infoText += '<br />行政區: ' + this.data.area;
+                    infoText += '<br />轄管單位: ' + this.data.admin;
+                    infoText += '<br />河川排水: ' + this.data.river;
+                    infoText += '<br /><img src="' + this.data.image + '" />';
+
+                    map.setZoom(15);
+                    map.setCenter(this.getPosition());
+                    $('#pointContent').html(infoText);
+                });
+                markers.push(marker);
+                markersBase.push(marker);
+                bounds.extend(geoPoint);
+            }
+        }
         for (k in rivers) {
             $.getJSON('http://i.tainan.gov.tw/TainanLocalWst.php?basin=' + rivers[k], {}, function (i) {
                 for (g in i.local_wst_warn_info) {
