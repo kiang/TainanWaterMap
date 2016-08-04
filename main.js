@@ -8,6 +8,29 @@ function initialize() {
         zoom: 12,
         center: {lat: 22.672925, lng: 120.309465}
     });
+    map.data.loadGeoJson('areas.json');
+    map.data.loadGeoJson('lines.json');
+    map.data.setStyle({
+      fillColor: 'blue',
+      strokeColor: 'blue',
+      strokeWeight: 1
+    });
+    map.data.addListener('click', function(event) {
+      var infoText = '';
+      event.feature.forEachProperty(function(v, k) {
+        if(k.indexOf('_NAME') !== -1) {
+          infoText += k + ': ' + v + '<br />';
+        }
+      });
+      info.setContent(infoText);
+      info.setPosition(event.latLng);
+      info.open(map);
+      infoText = '';
+      event.feature.forEachProperty(function(v, k) {
+        infoText += k + ': ' + v + '<br />';
+      });
+      $('#pointContent').html(infoText);
+    });
     info = new google.maps.InfoWindow();
     bounds = new google.maps.LatLngBounds();
 
@@ -23,7 +46,7 @@ function initialize() {
                     icon: 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png',
                     title: points[k].name
                 });
-                
+
                 marker.data = points[k];
                 marker.addListener('click', function () {
                     var infoText = '<strong>' + this.data.name + '</strong>';
