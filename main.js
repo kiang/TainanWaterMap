@@ -145,6 +145,12 @@ function initialize() {
         return false;
     });
 
+    $('a.bounds-alert').click(function () {
+        map.fitBounds(bounds);
+        showAlertPoints();
+        return false;
+    });
+
 }
 
 function showPoints() {
@@ -165,6 +171,19 @@ function showImagePoints() {
     markers = [];
     for (k in markersBase) {
         if (markersBase[k].data.image != '') {
+            markersBase[k].setMap(map);
+            markers.push(markersBase[k]);
+        }
+    }
+}
+
+function showAlertPoints() {
+    for (k in markers) {
+        markers[k].setMap(null);
+    }
+    markers = [];
+    for (k in markersBase) {
+        if (markersBase[k].data.alert_level && markersBase[k].data.alert_level !== '未達警戒') {
             markersBase[k].setMap(map);
             markers.push(markersBase[k]);
         }
