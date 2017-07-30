@@ -69,7 +69,8 @@ function initialize() {
             }
         }
         for (k in rivers) {
-            $.getJSON('http://210.61.23.112/tainanwatermobile/TainanLocalWst/GetLocalWstWarnInfo.aspx?basin=' + rivers[k], {}, function (i) {
+          //http://210.61.23.112/tainanwatermobile/TainanLocalWst/GetLocalWstWarnInfo.aspx?basin=
+            $.getJSON('http://olc.tw/GetLocalWstWarnInfo.php?basin=' + rivers[k], {}, function (i) {
                 for (g in i.local_wst_warn_info) {
                     var key = i.local_wst_warn_info[g].st_no;
                     if (!points[key]) {
