@@ -70,7 +70,7 @@ function initialize() {
         }
         for (k in rivers) {
           //http://210.61.23.112/tainanwatermobile/TainanLocalWst/GetLocalWstWarnInfo.aspx?basin=
-            $.getJSON('http://olc.tw/GetLocalWstWarnInfo.php?basin=' + rivers[k], {}, function (i) {
+            $.getJSON('json/' + rivers[k] + '.json', {}, function (i) {
                 for (g in i.local_wst_warn_info) {
                     var key = i.local_wst_warn_info[g].st_no;
                     if (!points[key]) {
