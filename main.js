@@ -257,7 +257,7 @@ map.on('singleclick', function(evt) {
       message += '<br />轄管單位: ' + p.admin;
       message += '<br />河川排水: ' + p.river;
       if(p.image && p.image !== '') {
-        message += '<br /><img src="' + p.image + '" />';
+        message += '<br /><img src="' + p.image + '" width="380" />';
       } else {
         message += '<br />警戒狀態: ' + p.alert_level;
         message += '<br />說明: ' + p.warn_info;
