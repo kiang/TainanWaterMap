@@ -8,8 +8,8 @@ function initialize() {
         zoom: 12,
         center: {lat: 22.672925, lng: 120.309465}
     });
-    map.data.loadGeoJson('areas.json');
-    map.data.loadGeoJson('lines.json');
+    map.data.loadGeoJson('../areas.json');
+    map.data.loadGeoJson('../lines.json');
     map.data.setStyle({
       fillColor: 'blue',
       strokeColor: 'blue',
