@@ -34,7 +34,7 @@ function initialize() {
     info = new google.maps.InfoWindow();
     bounds = new google.maps.LatLngBounds();
 
-    $.getJSON('points.json', {}, function (r) {
+    $.getJSON('../points.json', {}, function (r) {
         points = r;
         for (k in points) {
             if (k.substr(0, 1) === 'V') {
@@ -70,7 +70,7 @@ function initialize() {
         }
         for (k in rivers) {
           //http://210.61.23.112/tainanwatermobile/TainanLocalWst/GetLocalWstWarnInfo.aspx?basin=
-            $.getJSON('json/' + rivers[k] + '.json', {}, function (i) {
+            $.getJSON('../json/' + rivers[k] + '.json', {}, function (i) {
                 for (g in i.local_wst_warn_info) {
                     var key = i.local_wst_warn_info[g].st_no;
                     if (!points[key]) {
