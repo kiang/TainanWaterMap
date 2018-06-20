@@ -147,6 +147,7 @@ $.get('points.json', function(jPoints) {
       continue;
     }
     var p = points[k];
+    p.fType = 'img';
     p.geometry = new ol.geom.Point(ol.proj.fromLonLat([p.longitude, p.latitude]));
     var f = new ol.Feature(p);
     fc.push(f);
@@ -274,6 +275,7 @@ map.on('singleclick', function(evt) {
   });
 });
 
+var riverLayers = [];
 for (k in rivers) {
   $.getJSON('json/' + rivers[k] + '.json', {}, function (i) {
     var riverFc = [];
@@ -292,11 +294,16 @@ for (k in rivers) {
         points[key].info = i.local_wst_warn_info[g].info;
         points[key].warn_info = i.local_wst_warn_info[g].warn_info;
         var p = points[key];
+        if(p.alert_level === '未達警戒') {
+          p.fType = 'green';
+        } else {
+          p.fType = 'red';
+        }
         p.geometry = new ol.geom.Point(ol.proj.fromLonLat([points[key].longitude, points[key].latitude]));
         var f = new ol.Feature(p);
         riverFc.push(f);
     }
-    new ol.layer.Vector({
+    var riverLayer = new ol.layer.Vector({
       source: new ol.source.Vector({
         features: riverFc
       }),
@@ -311,5 +318,66 @@ for (k in rivers) {
       },
       map: map
     });
+    riverLayers.push(riverLayer);
   });
 }
+
+$('a.btnShowAll').click(function() {
+  sidebar.close();
+  var baseExtent = ol.extent.createEmpty();
+  map.getLayers().forEach(function(layer) {
+    if(layer instanceof ol.layer.Vector) {
+      ol.extent.extend(baseExtent, layer.getSource().getExtent());
+    }
+  });
+  map.getView().fit(baseExtent);
+
+  for(k in riverLayers) {
+    riverLayers[k].getSource().forEachFeature(function(f) {
+      if(f.get('fType') === 'green') {
+        f.setStyle(pointGreenStyle);
+      } else {
+        f.setStyle(pointRedStyle);
+      }
+    })
+  }
+  targetLayer.getSource().forEachFeature(function(f) {
+    var fStyle = pointStyle.clone();
+    fStyle.getText().setText(f.get('name'));
+    f.setStyle(fStyle);
+  });
+
+  return false;
+});
+
+var emptyStyle = new ol.style.Style({ image: '' });
+
+$('a.btnShowImg').click(function() {
+  for(k in riverLayers) {
+    riverLayers[k].getSource().forEachFeature(function(f) {
+      f.setStyle(emptyStyle);
+    })
+  }
+  targetLayer.getSource().forEachFeature(function(f) {
+    var fStyle = pointStyle.clone();
+    fStyle.getText().setText(f.get('name'));
+    f.setStyle(fStyle);
+  });
+  return false;
+});
+
+$('a.btnShowRed').click(function() {
+  for(k in riverLayers) {
+    riverLayers[k].getSource().forEachFeature(function(f) {
+      if(f.get('fType') === 'green') {
+        f.setStyle(emptyStyle);
+      } else {
+        f.setStyle(pointRedStyle);
+      }
+    })
+  }
+  targetLayer.getSource().forEachFeature(function(f) {
+    f.setStyle(emptyStyle);
+  });
+  return false;
+});
