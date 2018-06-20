@@ -353,6 +353,8 @@ $('a.btnShowAll').click(function() {
 var emptyStyle = new ol.style.Style({ image: '' });
 
 $('a.btnShowImg').click(function() {
+  sidebar.close();
+  var baseExtent = ol.extent.createEmpty();
   for(k in riverLayers) {
     riverLayers[k].getSource().forEachFeature(function(f) {
       f.setStyle(emptyStyle);
@@ -362,16 +364,21 @@ $('a.btnShowImg').click(function() {
     var fStyle = pointStyle.clone();
     fStyle.getText().setText(f.get('name'));
     f.setStyle(fStyle);
+    ol.extent.extend(baseExtent, f.getGeometry().getExtent());
   });
+  map.getView().fit(baseExtent);
   return false;
 });
 
 $('a.btnShowRed').click(function() {
+  sidebar.close();
+  var baseExtent = ol.extent.createEmpty();
   for(k in riverLayers) {
     riverLayers[k].getSource().forEachFeature(function(f) {
       if(f.get('fType') === 'green') {
         f.setStyle(emptyStyle);
       } else {
+        ol.extent.extend(baseExtent, f.getGeometry().getExtent());
         f.setStyle(pointRedStyle);
       }
     })
@@ -379,5 +386,6 @@ $('a.btnShowRed').click(function() {
   targetLayer.getSource().forEachFeature(function(f) {
     f.setStyle(emptyStyle);
   });
+  map.getView().fit(baseExtent);
   return false;
 });
