@@ -1,1 +1,15 @@
-null
+{
+    "local_wst_warn_info": [
+        {
+            "basin_no": "1630",
+            "st_no": "W1771301",
+            "st_name": "民生橋",
+            "river": "菜寮溪",
+            "info": "28.18",
+            "alert_level": "未達警戒",
+            "warn_info": "水位目前28.18公尺",
+            "date": "2018\/07\/21 16:30",
+            "change": "0.55"
+        }
+    ]
+}
