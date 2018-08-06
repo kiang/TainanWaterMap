@@ -1,1 +1,15 @@
-null
+{
+    "local_wst_warn_info": [
+        {
+            "basin_no": "1650",
+            "st_no": "W1770904",
+            "st_name": "鹽水溪橋",
+            "river": "鹽水溪",
+            "info": "0.61",
+            "alert_level": "未達警戒",
+            "warn_info": "水位目前0.61公尺",
+            "date": "2018\/08\/07 07:40",
+            "change": "0.00"
+        }
+    ]
+}
