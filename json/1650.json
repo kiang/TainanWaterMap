@@ -2,6 +2,20 @@
     "local_wst_warn_info": [
         {
             "basin_no": "1650",
+            "st_no": "W1770904",
+            "st_name": "鹽水溪橋",
+            "river": "鹽水溪",
+            "district": null,
+            "info": "0.19",
+            "alert_level": "未達警戒",
+            "warn_info": "水位目前0.19公尺",
+            "date": "2019\/05\/25 21:20",
+            "change": "0.00",
+            "lat": 0,
+            "lon": 0
+        },
+        {
+            "basin_no": "1650",
             "st_no": "W1771203",
             "st_name": "新豐1號橋",
             "river": "虎頭溪排水",
