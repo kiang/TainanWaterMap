@@ -6,7 +6,7 @@ if (!file_exists($tmpPath)) {
 }
 $tmpFile = $tmpPath . '/point.csv';
 if (!file_exists($tmpFile)) {
-    file_put_contents($tmpFile, file_get_contents('http://data.tainan.gov.tw/dataset/53fe0c36-d4f7-422f-90ff-a681edd2f042/resource/20bea80e-450c-4039-9523-8ac672727f47/download/gaugingstation71.csv'));
+    file_put_contents($tmpFile, file_get_contents('https://data.tainan.gov.tw/dataset/53fe0c36-d4f7-422f-90ff-a681edd2f042/resource/20bea80e-450c-4039-9523-8ac672727f47/download/77.csv'));
 }
 
 $csv = fopen($tmpFile, 'r');
@@ -48,7 +48,7 @@ while ($line = fgetcsv($csv, 2048)) {
 
 $tmpFile = $tmpPath . '/cctv.csv';
 if (!file_exists($tmpFile)) {
-    file_put_contents($tmpFile, file_get_contents('http://data.tainan.gov.tw/dataset/5b495b9d-6fb1-4988-972b-7e94775c464a/resource/61358290-c792-4ea2-9bbd-6dda8f9cc45b/download/cctv.csv'));
+    file_put_contents($tmpFile, file_get_contents('https://data.tainan.gov.tw/dataset/5b495b9d-6fb1-4988-972b-7e94775c464a/resource/61358290-c792-4ea2-9bbd-6dda8f9cc45b/download/new11.csv'));
 }
 /*
  * Array
