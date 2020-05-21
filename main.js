@@ -277,7 +277,7 @@ map.on('singleclick', function(evt) {
 
 var riverLayers = [];
 for (k in rivers) {
-  $.getJSON('json/' + rivers[k] + '.json', {}, function (i) {
+  $.getJSON('http://210.61.23.112/tainanwatermobile/TainanLocalWst/GetLocalWstWarnInfo3.aspx?basin=' + rivers[k], {}, function (i) {
     var riverFc = [];
     for (g in i.local_wst_warn_info) {
         var key = i.local_wst_warn_info[g].st_no;
